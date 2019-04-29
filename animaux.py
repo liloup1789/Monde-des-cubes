@@ -31,6 +31,10 @@ class Animal(ABC):
 
         self.emotional_state = random.randint(0,len(Animal.emotional_states))
 
+        self.food = "food"
+
+        self.hungry = False
+
 
 
     @abstractmethod
@@ -42,13 +46,12 @@ class Animal(ABC):
     def feed(self,food) : 
 
         if self.energy < 5 : 
-            self.energy += 1
+            self.energy += 2
     
-    def move(self,sense) : 
+    # def move(self,sense) : 
 
-        self.moves = sense
-        self.front = self.moves
-
+    #     self.moves = sense
+    #     self.front = self.moves
 
     def turn(self,sense) :
         
@@ -65,19 +68,30 @@ class Animal(ABC):
 
             self.spotted = False
 
+    @abstractmethod
+    def move(self,dirs) : 
+
+        pass
+
 
 class sheep(Animal) :
+
     def __init__(self,mydamier) :
 
         super().__init__(mydamier)
 
         print("bêêêêê je suis un mouton\n")
 
+        self.food = "grass"
+
     def type_animal(self):
 
         self._type_animal = "prey"
 
-
+    def hungry(self):
+        
+        if self.energy < 2 : 
+            self.hungry = True
 
 class wolf(Animal) :
     def __init__(self,mydamier) :
@@ -86,6 +100,8 @@ class wolf(Animal) :
 
         print("graouuuu je suis un loup\n")
 
+        self.food = "prey"
+        self.hungry = True
 
     def type_animal(self):
 

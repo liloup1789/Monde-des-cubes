@@ -7,24 +7,24 @@ from pprint import pprint
 class Damier(object) :
 
     def __init__(self):
-        # self.length = length
-        # self.height = height
+        self.length = 10
+        self.height = 10
         self.damier = []
-        # if length == height : 
-        #     self.type = "square"
-        # else : 
-        #     self.type = "rectangle"
+        if length == height : 
+            self.type = "square"
+        else : 
+            self.type = "rectangle"
 
-        # for x in range(length):
-        #     self.damier.append([])
-        #     for y in range(height):
-        #         self.damier[x].append(0)
-        # self.edges = (length,height)
+        for x in range(length):
+            self.damier.append([])
+            for y in range(height):
+                self.damier[x].append(0)
+        self.edges = (length,height)
 
-#     def update_world(self,old,new,turn):
-#         self.damier[new[0]][new[1]] += 1
-#         if turn != 0: 
-#             self.damier[old[0]][old[1]] -= 1
+    def update_world(self,old,new,turn,objet):
+        self.damier[new[0]][new[1]] = objet
+        if turn != 0: 
+            self.damier[old[0]][old[1]] = 0
             
     
 #     def afficher(self,lignes = "") :
@@ -43,7 +43,7 @@ class Damier(object) :
 
 #                     # print (x_range[i])
 #                     lignes[x].append(x_range[i])
-#                     x += 1
+#                     x += 
 #                 #     ligne  = str(x_range[i])+'-'+ligne
 #                 # #for case in ligne: 
 #                 #     #colonne += case +'-'
